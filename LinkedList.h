@@ -16,7 +16,7 @@ private:
 	Node<ItemType>* headPtr;
 	Node<ItemType>* tailPtr;
 
-	Node<ItemType>* getNodeAt();
+	Node<ItemType>* getNodeAt(int position);
 
 public:
 	//constructor
