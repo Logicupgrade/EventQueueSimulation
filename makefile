@@ -9,9 +9,6 @@ Test : TestLinkedList.o  LinkedList.o Node.o #InterfaceMenu.o
 TestLinkedList.o : TestLinkedList.cpp LinkedList.cpp Node.cpp #InterfaceMenu.cpp
 	$(CC) $(CFLAGS)  TestLinkedList.cpp
 
-# InterfaceMenu.o : InterfaceMenu.cpp LinkedList.cpp Node.cpp
-# 	$(CC) $(CFLAGS)  InterfaceMenu.cpp
-
 LinkedList.o : LinkedList.cpp Node.cpp
 	$(CC) $(CFLAGS)  LinkedList.cpp
 	

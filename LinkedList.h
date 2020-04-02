@@ -28,6 +28,9 @@ public:
 	//checks to see if list is empty
 	bool isEmpty() const;
 
+	//deletes all nodes
+	bool clear();
+
 	//inserts new node at specified position
 	bool insert(int position, const ItemType& newItem);
 
@@ -38,13 +41,17 @@ public:
 	int getCount() const;
 
 	//gets node item at specified position
-	ItemType getEntry(int postion) const;
+	ItemType getEntry(int postion);
 
 	//sets node item at specified position
-	void setEntry(int postion, const ItemType& newItem) const;
+	void setEntry(int postion, const ItemType& newItem);
 
 	//creates vector of linked list
 	vector<ItemType> toVector() const; 
+
+	//debug features
+	ItemType getHead()const;
+	ItemType getTail()const;
 
 };
 

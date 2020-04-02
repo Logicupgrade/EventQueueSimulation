@@ -2,6 +2,8 @@
 #include "Node.cpp"
 #include "LinkedList.h"
 
+#include <cassert>
+
 template<class ItemType>
 LinkedList<ItemType>::LinkedList():nodeCount(0), headPtr(nullptr), tailPtr(nullptr)
 {
@@ -17,6 +19,7 @@ LinkedList<ItemType>::~LinkedList()
 template<class ItemType>
 Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position)
 {
+
 	bool positionExists = true;
 	Node<ItemType>* currentPtr = headPtr;
 	int i = 0;
@@ -27,13 +30,31 @@ Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position)
 		currentPtr = nullptr;
 	}
 
-	while( (i < position) && positionExists)
+	while( ((i+1) < position) && positionExists)
 	{
 		currentPtr = currentPtr->getNext();
 		i++;
 	}
 
 	return currentPtr;
+}
+
+template<class ItemType>
+bool LinkedList<ItemType>::isEmpty() const
+{
+	return(nodeCount == 0);
+}
+
+template<class ItemType>
+bool LinkedList<ItemType>::clear()
+{
+	//deletes first node in loop until list is empty 
+	while(!isEmpty())
+	{
+		remove(1);
+	}
+
+	return true;
 }
 
 //Adds to front of linked list
@@ -75,22 +96,22 @@ bool LinkedList<ItemType>::insert(int position, const ItemType& newItem)
 	 	}
 
 		//adding to middle
-		else if( (1 < position) && (position <= count) &&  (nodeCount > 1) )
+		else if( (1 < position) && (position <= nodeCount) &&  (nodeCount > 1) )
 	 	{
 			Node<ItemType>* beforePtr;
 			Node<ItemType>* afterPtr;
-			
-	 		tempNodePtr->setNext(nullptr);
-	 		headPtr = tempNodePtr;
-	 		tailPtr = tempNodePtr;
 
 			beforePtr = getNodeAt(position - 1);
-			afterPtr = getNodeAt(position + 1);
+			afterPtr = getNodeAt(position);
 
 			beforePtr->setNext(tempNodePtr);
-			tempNodePtr->setNext(afterPtr);			 
+			tempNodePtr->setNext(afterPtr);
+
+			beforePtr = nullptr;
+			afterPtr = nullptr;	 
 	 	} 
 
+	 	tempNodePtr = nullptr;
 	 	nodeCount++;
 	}
 	
@@ -164,6 +185,39 @@ int LinkedList<ItemType>::getCount() const
 }
 
 template<class ItemType>
+ItemType LinkedList<ItemType>::getEntry(int position)
+{
+
+	Node<ItemType>* tempNodePtr;
+	ItemType tempItem;
+
+	if( (position >= 1) && (position <= nodeCount) )
+	{
+		tempNodePtr = getNodeAt(position);
+		tempItem = tempNodePtr->getItem();
+	}
+
+	//funky chicken code
+	else
+	{
+		assert(tempItem = -3825);
+	}
+	
+
+	return tempItem;
+
+}
+
+template<class ItemType>
+void LinkedList<ItemType>::setEntry(int position, const ItemType& newItem)
+{
+	if( (position >= 1) && (position <= nodeCount) )
+	{
+		getNodeAt(position)->setItem(newItem);
+	}
+}
+
+template<class ItemType>
 vector<ItemType> LinkedList<ItemType>::toVector() const
 {
 	vector<ItemType> tempVector;
@@ -176,4 +230,16 @@ vector<ItemType> LinkedList<ItemType>::toVector() const
 	}
 	
 	return tempVector;
+}
+
+template<class ItemType>
+ItemType LinkedList<ItemType>::getHead()const
+{
+	return headPtr->getItem();
+}
+
+template<class ItemType>
+ItemType LinkedList<ItemType>::getTail()const
+{
+	return tailPtr->getItem();
 }
