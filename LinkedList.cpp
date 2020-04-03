@@ -2,7 +2,10 @@
 #include "Node.cpp"
 #include "LinkedList.h"
 
+#include <iostream>
 #include <cassert>
+
+using namespace std;
 
 template<class ItemType>
 LinkedList<ItemType>::LinkedList():nodeCount(0), headPtr(nullptr), tailPtr(nullptr)
@@ -191,18 +194,38 @@ ItemType LinkedList<ItemType>::getEntry(int position)
 	Node<ItemType>* tempNodePtr;
 	ItemType tempItem;
 
-	if( (position >= 1) && (position <= nodeCount) )
+	//one for the homies ;)
+	if( (position < 1) || (position > nodeCount) )
 	{
-		tempNodePtr = getNodeAt(position);
-		tempItem = tempNodePtr->getItem();
+		cout<<endl<<"done f*cked up"<<endl;
+		cout<<"position out of bounds try again"<<endl;
+		if(nodeCount<1)
+		{
+			cout<<"no Nodes fool"<<endl;
+			exit(0);
+		}
+		else if( (position > nodeCount) )
+		{
+			cout<<"position > nodeCount"<<endl;
+			cout<<"position: "<<position<<endl;
+			cout<<"nodeCount: "<<nodeCount<<endl;
+			exit(0);
+		}
+		else if (position < 1)
+		{
+			cout<<"why is position <1? Hack3r!"<<endl;
+			exit(0);
+		}
+		else
+		{
+			cout<<"I was too tired to figure out why this happens haha"<<endl;
+			exit(0);
+		}
+		
 	}
 
-	//funky chicken code
-	else
-	{
-		assert(tempItem = -3825);
-	}
-	
+	tempNodePtr = getNodeAt(position);
+	tempItem = tempNodePtr->getItem();
 
 	return tempItem;
 

@@ -42,6 +42,7 @@ public:
 
 	//gets node item at specified position
 	ItemType getEntry(int postion);
+	// auto getEntry(int postion);
 
 	//sets node item at specified position
 	void setEntry(int postion, const ItemType& newItem);

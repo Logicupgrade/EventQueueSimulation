@@ -4,16 +4,19 @@
 
 #include "LinkedList.h"
 
-teplate<class ItemType>
-class LinkedQueue : private LinkedList<ItemType>
+template<class ItemType>
+class LinkedQueue : public LinkedList<ItemType>
 {
-	public:
+private:
+	LinkedList<ItemType>* listQ;
+public:
     LinkedQueue();
     ~LinkedQueue();
-    bool enqueue();
+    bool enqueue(const ItemType& newItem);
     bool dequeue();
     bool isEmpty();
-    ItemType peek();
-}
+    ItemType peekFront();
+    int getCount();
+};
 
 #endif
