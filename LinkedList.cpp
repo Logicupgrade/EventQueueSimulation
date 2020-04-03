@@ -232,14 +232,14 @@ vector<ItemType> LinkedList<ItemType>::toVector() const
 	return tempVector;
 }
 
-template<class ItemType>
-ItemType LinkedList<ItemType>::getHead()const
-{
-	return headPtr->getItem();
-}
+// template<class ItemType>
+// ItemType LinkedList<ItemType>::getHead()const
+// {
+// 	return headPtr->getItem();
+// }
 
-template<class ItemType>
-ItemType LinkedList<ItemType>::getTail()const
-{
-	return tailPtr->getItem();
-}
+// template<class ItemType>
+// ItemType LinkedList<ItemType>::getTail()const
+// {
+// 	return tailPtr->getItem();
+// }

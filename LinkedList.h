@@ -50,8 +50,8 @@ public:
 	vector<ItemType> toVector() const; 
 
 	//debug features
-	ItemType getHead()const;
-	ItemType getTail()const;
+	// ItemType getHead()const;
+	// ItemType getTail()const;
 
 };
 
