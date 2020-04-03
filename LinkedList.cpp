@@ -192,7 +192,7 @@ ItemType LinkedList<ItemType>::getEntry(int position)
 {
 
 	Node<ItemType>* tempNodePtr;
-	ItemType tempItem;
+	// ItemType tempItem; ****OOP Lesson: dont create temp objects(wont know params) 
 
 	//one for the homies ;)
 	if( (position < 1) || (position > nodeCount) )
@@ -224,9 +224,8 @@ ItemType LinkedList<ItemType>::getEntry(int position)
 	}
 
 	tempNodePtr = getNodeAt(position);
-	tempItem = tempNodePtr->getItem();
 
-	return tempItem;
+	return tempNodePtr->getItem();
 
 }
 
