@@ -197,7 +197,6 @@ ItemType LinkedList<ItemType>::getEntry(int position)
 	//one for the homies ;)
 	if( (position < 1) || (position > nodeCount) )
 	{
-		cout<<endl<<"done f*cked up"<<endl;
 		cout<<"position out of bounds try again"<<endl;
 		if(nodeCount<1)
 		{

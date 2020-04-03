@@ -35,37 +35,29 @@ int main()
 	leQ.enqueue(leList4);
 	leQ.enqueue(leList5);
 
-	LinkedList<int>* LandL = leQ.peekFront();
+	// LinkedList<int>* LandL = leQ.peekFront();
 
 	
-	cout<<"front1: "<< LandL->getEntry(2) <<endl;//leQ.peekFront()
-	// cout<<"count1: "<< leQ.getCount() <<endl;
+	cout<<"front1: "<< leQ.peekFront()->getEntry(2) <<endl;
+	cout<<"count1: "<< leQ.getCount() <<endl;
 
 	leQ.dequeue();
 	leQ.dequeue();
 	leQ.dequeue();
 
-	// cout<<"front2: "<<leQ.peekFront()<<endl;
-	// cout<<"count2: "<<leQ.getCount()<<endl;
+	cout<<"front2: "<<leQ.peekFront()<<endl;
+	cout<<"count2: "<<leQ.getCount()<<endl;
 
-	// cout<<"isEmpty1: "<<leQ.isEmpty()<<endl;
+	cout<<"isEmpty1: "<<leQ.isEmpty()<<endl;
 
 	leQ.dequeue();
 	leQ.dequeue();
 	
-	// cout<<"front3: "<<leQ.peekFront()<<endl;
-	// cout<<"count3: "<<leQ.getCount()<<endl;
+	cout<<"count3: "<<leQ.getCount()<<endl;
 
-	// cout<<"isEmpty2: "<<leQ.isEmpty()<<endl;
+	cout<<"isEmpty2: "<<leQ.isEmpty()<<endl;
 
 	leQ.dequeue();
-
-	// cout<<"front4: "<<leQ.peekFront()<<endl;
-	// cout<<"count4: "<<leQ.getCount()<<endl;
-
-	// cout<<"isEmpty3: "<<leQ.isEmpty()<<endl;
-
-
 
 
 	return 0;
