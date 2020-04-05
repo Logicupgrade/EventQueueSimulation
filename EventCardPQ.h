@@ -11,7 +11,7 @@ private:
 public:
 	EventCardPQ();
 	~EventCardPQ();
-	bool enqueue(const EventCard& newECard);
+	bool enqueue(const EventCard& newECard, int priorityVal);
 };
 
 #endif

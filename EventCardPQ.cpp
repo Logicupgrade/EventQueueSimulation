@@ -12,10 +12,7 @@ EventCardPQ<ItemType>::~EventCardPQ()
 }
 
 template<class ItemType>
-bool EventCardPQ<ItemType>::enqueue(const EventCard& newECard)
+bool EventCardPQ<ItemType>::enqueue(const EventCard& newECard, int priorityVal)
 {
-	//Make this work in priorityQueue and remove priority from node
-	//switch parameters in PQ to this
-	eventCardPQ.enqueue( newECard, newECard.getETime() );
-	
+	eventCardPQ->enqueue( newECard, newECard.getETime() );	
 }
