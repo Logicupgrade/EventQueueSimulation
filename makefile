@@ -4,10 +4,10 @@ CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG) 
 
 
-Test : TestLinkedQueue.o  LinkedQueue.o LinkedList.o Node.o Event.o EventCard.o
+Test : TestLinkedQueue.o  PriorityQueue.o LinkedQueue.o LinkedList.o Node.o Event.o EventCard.o
 	$(CC) $(LFLAGS)  TestLinkedQueue.o -o Test
 
-TestLinkedQueue.o : TestLinkedQueue.cpp LinkedQueue.cpp LinkedList.cpp Node.cpp Event.cpp EventCard.cpp
+TestLinkedQueue.o : TestLinkedQueue.cpp PriorityQueue.cpp LinkedQueue.cpp LinkedList.cpp Node.cpp Event.cpp EventCard.cpp
 	$(CC) $(CFLAGS)  TestLinkedQueue.cpp
 
 # Test : TestLinkedList.o  LinkedList.o Node.o
@@ -15,6 +15,9 @@ TestLinkedQueue.o : TestLinkedQueue.cpp LinkedQueue.cpp LinkedList.cpp Node.cpp 
 
 # TestLinkedList.o : TestLinkedList.cpp LinkedList.cpp Node.cpp
 # 	$(CC) $(CFLAGS)  TestLinkedList.cpp
+
+PriorityQueue.o : PriorityQueue.cpp LinkedQueue.cpp LinkedList.cpp Node.cpp
+	$(CC) $(CFLAGS)  PriorityQueue.cpp
 
 LinkedQueue.o : LinkedQueue.cpp LinkedList.cpp Node.cpp
 	$(CC) $(CFLAGS)  LinkedQueue.cpp

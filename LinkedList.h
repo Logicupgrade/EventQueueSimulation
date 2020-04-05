@@ -5,7 +5,7 @@
 #include "Node.h"
 #include <vector>
 
-// using namespace std;
+using namespace std;
 
 template<class ItemType>
 class LinkedList

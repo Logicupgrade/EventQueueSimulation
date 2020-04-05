@@ -2,6 +2,7 @@
 #define _PRIORITY_QUEUE
 
 #include "LinkedQueue.h"
+// #include <vector>
 
 template<class ItemType>
 class PriorityQueue : public LinkedQueue<ItemType>
@@ -11,5 +12,7 @@ private:
 public:
 	PriorityQueue();
 	~PriorityQueue();
-	bool enqueue(const ItemType& newItem, const int priorityValue);
+	bool enqueue(const ItemType& newItem);
 };
+
+#endif

@@ -1,6 +1,9 @@
 
 
-#include "Priority.h"
+#include "PriorityQueue.h"
+
+#include "LinkedQueue.h"
+#include "LinkedList.h"
 
 template<class ItemType>
 PriorityQueue<ItemType>::PriorityQueue()
@@ -38,7 +41,7 @@ bool PriorityQueue<ItemType>::enqueue(const ItemType& newItem)
 			//sets Entry at index, breaks while, hasInserted = true
 			else
 			{
-				priorityQ->setEntry(tempIndex, newItem)
+				priorityQ->setEntry(tempIndex, newItem);
 				hasInserted = true;
 				break;
 			}

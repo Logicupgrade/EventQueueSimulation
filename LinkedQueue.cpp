@@ -1,6 +1,8 @@
 
-#include "LinkedList.cpp"
+
 #include "LinkedQueue.h"
+// #include "LinkedList.cpp"
+
 
 template<class ItemType>
 LinkedQueue<ItemType>::LinkedQueue()
