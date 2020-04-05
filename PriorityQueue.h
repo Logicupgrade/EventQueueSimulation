@@ -11,6 +11,5 @@ private:
 public:
 	PriorityQueue();
 	~PriorityQueue();
-	bool enqueue(const ItemType& newItem);
-
+	bool enqueue(const ItemType& newItem, const int priorityValue);
 };

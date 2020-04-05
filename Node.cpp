@@ -30,6 +30,12 @@ void Node<ItemType>::setNext(Node<ItemType>* nextNodePtr)
 }
 
 template<class ItemType>
+void Node<ItemType>::setPVal(int priority)
+{
+	priorityValue = priority;
+}
+
+template<class ItemType>
 ItemType Node<ItemType>::getItem()const
 {
 	return item;
@@ -39,4 +45,10 @@ template<class ItemType>
 Node<ItemType>* Node<ItemType>::getNext()const
 {
 	return next;
+}
+
+template<class ItemType>
+int Node<ItemType>::getPVal()const
+{
+	return priorityValue;
 }
