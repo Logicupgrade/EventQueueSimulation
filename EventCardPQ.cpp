@@ -2,7 +2,7 @@
 #include "EventCard.h"
 
 template<class ItemType>
-EventCardPQ<ItemType>::EventCardPQ()
+EventCardPQ<ItemType>::EventCardPQ(bool ascend): PriorityQueue<EventCard>::PriorityQueue(ascend)
 {
 }
 

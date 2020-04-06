@@ -7,10 +7,13 @@
 template<class ItemType>
 class PriorityQueue : public LinkedQueue<ItemType>
 {
+private:
+	bool isAscending;
 public:
-	PriorityQueue();
+	PriorityQueue(bool ascend);
 	~PriorityQueue();
 	bool enqueue(const ItemType& newItem, int pValue);
+	void setAscending(bool ascend);
 };
 
 #endif

@@ -10,7 +10,7 @@ class EventCardPQ : public PriorityQueue<ItemType>
 private:
 	PriorityQueue<ItemType>* eventCardPQ;
 public:
-	EventCardPQ();
+	EventCardPQ(bool ascend);
 	~EventCardPQ();
 	bool enqueue(const EventCard& newECard, int priorityVal);
 };

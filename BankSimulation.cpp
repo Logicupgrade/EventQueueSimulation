@@ -27,7 +27,7 @@ void displayEvents( EventCardPQ<EventCard>* eCardSim );
 int main()
 {
 	LinkedQueue<Event>* bankEvents = new LinkedQueue<Event>();
-	EventCardPQ<EventCard>* eventRecord = new EventCardPQ<EventCard>();
+	EventCardPQ<EventCard>* eventRecord = new EventCardPQ<EventCard>(false);
 
 	readEventsToLQ(bankEvents, "InputFile.txt");
 
@@ -130,6 +130,10 @@ void loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEven
 //3 display events(PQ)
 void displayEvents( EventCardPQ<EventCard>* eCardSim )
 {
+	//reverse pQOrder want to keep priorityQ order as highest to lowest
+
+
+
 	cout<<"Simulation Begins"<<endl;
 
 	while( !eCardSim->isEmpty() )

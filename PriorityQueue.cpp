@@ -10,8 +10,9 @@
 using namespace std;
 
 template<class ItemType>
-PriorityQueue<ItemType>::PriorityQueue()
+PriorityQueue<ItemType>::PriorityQueue(bool ascend)
 {
+	setAscending(ascend);
 }
 
 template<class ItemType>
@@ -33,14 +34,21 @@ bool PriorityQueue<ItemType>::enqueue(const ItemType& newItem, int pValue)
 			tempPtr =  this->getNodeAt(tempIndex);
 
 			//true: node p value greater than newItem p value
-			if( tempPtr->getPVal() >= pValue )
+			if( tempPtr->getPVal() >= pValue  && isAscending )
 			{
 
 				//go to next node tempIndex++
 				tempPtr = tempPtr->getNext();
-				tempIndex++;
+				tempIndex++;	
+			}
 
-				
+			//added descending functionality
+			else if( tempPtr->getPVal() <= pValue  && !isAscending )
+			{
+
+				//go to next node tempIndex++
+				tempPtr = tempPtr->getNext();
+				tempIndex++;	
 			}
 
 			//sets Entry at index, breaks while, hasInserted = true
@@ -72,3 +80,10 @@ bool PriorityQueue<ItemType>::enqueue(const ItemType& newItem, int pValue)
 
 	return hasInserted;
 }
+
+template<class ItemType>
+void PriorityQueue<ItemType>::setAscending(bool ascend)
+{
+	isAscending = ascend;
+}
+ 
