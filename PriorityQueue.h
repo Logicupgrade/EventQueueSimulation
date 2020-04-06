@@ -7,8 +7,6 @@
 template<class ItemType>
 class PriorityQueue : public LinkedQueue<ItemType>
 {
-private:
-	LinkedQueue<ItemType>* priorityQ;
 public:
 	PriorityQueue();
 	~PriorityQueue();

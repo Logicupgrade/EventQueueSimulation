@@ -12,17 +12,17 @@ EventCard::~EventCard()
 {
 }
 
-char EventCard::getEType()
+char EventCard::getEType()const
 {
 	return eventType;
 }
 
-int EventCard::getETime()
+int EventCard::getETime()const
 {
 	return eventTime;
 }
 
-int EventCard::getELength()
+int EventCard::getELength()const
 {
 	return eventLength;
 }

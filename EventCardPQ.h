@@ -2,6 +2,7 @@
 #define _EVENTCARD_PRIORITY_QUEUE
 
 #include "PriorityQueue.h"
+#include "EventCard.h"
 
 template<class ItemType>
 class EventCardPQ : public PriorityQueue<ItemType>

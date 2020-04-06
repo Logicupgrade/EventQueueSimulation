@@ -1,4 +1,7 @@
 
+#ifndef _EVENTCARD
+#define _EVENTCARD
+
 class EventCard
 {
 private:
@@ -8,7 +11,9 @@ private:
 public:
 	EventCard(char typeOfEvent, int startTime, int lengthOfEvent);
 	~EventCard();
-	char getEType();
-	int getETime();
-	int getELength();
+	char getEType()const;
+	int getETime()const;
+	int getELength()const;
 };
+
+#endif

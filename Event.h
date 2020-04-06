@@ -1,4 +1,7 @@
 
+#ifndef _BANK_EVENT
+#define _BANK_EVENT
+
 class Event
 {
 private:
@@ -29,3 +32,5 @@ public:
 	int getTotalBankTime();
 
 };
+
+#endif

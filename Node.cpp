@@ -18,6 +18,11 @@ Node<ItemType>::Node(const ItemType& anItem, Node<ItemType>* nextNodePtr) : item
 }
 
 template<class ItemType>
+Node<ItemType>::~Node()
+{
+}
+
+template<class ItemType>
 void Node<ItemType>::setItem(const ItemType& anItem)
 {
 	item = anItem;

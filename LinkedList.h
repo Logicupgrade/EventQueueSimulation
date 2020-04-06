@@ -16,14 +16,15 @@ private:
 	Node<ItemType>* headPtr;
 	Node<ItemType>* tailPtr;
 
-	Node<ItemType>* getNodeAt(int position);
-
 public:
 	//constructor
 	LinkedList();
 
 	//destructor
 	virtual ~LinkedList();
+
+	//helper function
+	Node<ItemType>* getNodeAt(int position);
 
 	//checks to see if list is empty
 	bool isEmpty() const;

@@ -141,9 +141,9 @@ bool LinkedList<ItemType>::remove(int position)
 		//remove front
 		else if( nodeCount > 1 && position == 1 )
 		{
-			tempNodePtr = headPtr;
+			tempNodePtr = this->getNodeAt(1);
 
-			headPtr = headPtr->getNext();
+			headPtr = this->getNodeAt(2);
 
 			delete tempNodePtr;
 		}

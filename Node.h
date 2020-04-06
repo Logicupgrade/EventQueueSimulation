@@ -14,6 +14,7 @@ public:
 	Node();
 	Node(const ItemType& anItem);
 	Node(const ItemType& anItem, Node<ItemType>* nextNodePtr);
+	virtual ~Node();
 	void setItem(const ItemType& anItem);
 	void setNext(Node<ItemType>* nextNodePtr);
 	void setPVal(int priority);

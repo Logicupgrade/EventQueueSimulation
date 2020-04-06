@@ -14,9 +14,9 @@ public:
     ~LinkedQueue();
     bool enqueue(const ItemType& newItem);
     bool dequeue();
-    bool isEmpty();
+    // bool isEmpty();
     ItemType peekFront();
-    int getCount();
+    // int getCount();
 };
 
 #endif
