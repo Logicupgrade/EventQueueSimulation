@@ -35,19 +35,22 @@ int main()
 
 	displayEvents(eventRecord);
 
-	//________displays bankEvents__________________
-	// int i = 0;
-	// int arrival;
-	// int transactionTime;
-	// cout<<"count: "<<bankEvents->getCount()<<endl;
-	// while( i<bankEvents->getCount() )
-	// {
-	// 	arrival = bankEvents->getNodeAt(i)->getItem().getArrive();
-	// 	transactionTime = bankEvents->getNodeAt(i)->getItem().getTransactionTime();
+	//________Displays Bank Stats__________________
+	int i = 0;
+	int sum = 0;
+	int wait;
 
-	// 	cout<<"arrive: "<<arrival<<"	duration: "<<transactionTime<<endl;
-	// 	i++;
-	// }
+	cout<<"count: "<<bankEvents->getCount()<<endl;
+
+	while( i<bankEvents->getCount() )
+	{
+		wait = bankEvents->getNodeAt(i)->getItem().getWait();
+		cout<<"wait: "<<wait<<endl;
+		sum += wait;
+		i++;
+	}
+
+	cout<<"avg wait: "<<sum/10<<endl;
 	//_____________________________________________
 	
 
@@ -109,7 +112,8 @@ void loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEven
 		timeKeeper += currentEvent->getTransactionTime();
 
 		//customer departed at this time
-		currentEvent->departedAt(timeKeeper);		
+		currentEvent->departedAt(timeKeeper);
+		cout<<"departed: "<< timeKeeper<<endl;
 
 		//enqueue 'd',departure time,duration=0
 		EventCard tempCardD('d', timeKeeper , 0);

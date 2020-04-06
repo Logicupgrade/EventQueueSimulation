@@ -21,7 +21,7 @@
 
 	void Event::helpedAt(int timeHelped)
 	{
-		helped = timeHelped;
+		this->helped = timeHelped;
 		haveHelpedAt = true;
 	}
 
@@ -29,20 +29,25 @@
 	{
 		if( (timeDeparted >= 0) && (helped >= arrive) )
 		{
-			depart = timeDeparted;
+			this->depart = timeDeparted;
 			haveDepart = true;
 		}
 	}
 
 	bool Event::calcValues()
 	{
+
 		bool claculatedValues = false;
 		if(haveHelpedAt && haveDepart)
 		{
+
 			wait = helped-arrive;
 			totalBankTime = arrive-depart;
 
 			claculatedValues = true;
+
+			cout<<"helped: "<<helped<<endl;
+			cout<<"arrive: "<<arrive<<endl;
 		}
 
 		return claculatedValues;
