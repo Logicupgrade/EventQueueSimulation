@@ -25,7 +25,7 @@
 		haveHelpedAt = true;
 	}
 
-	void Event::departAt(int timeDeparted)
+	void Event::departedAt(int timeDeparted)
 	{
 		if( (timeDeparted >= 0) && (helped >= arrive) )
 		{

@@ -21,7 +21,7 @@ public:
 	Event(int arriveTime, int duration);
 	~Event();
 	void helpedAt(int timeHelped);//set HaveHelpedAt true
-	void departAt(int timeDeparted);//set HaveDepart true
+	void departedAt(int timeDeparted);//set HaveDepart true
 	bool calcValues();//check have bools
 
 	int getArrive();

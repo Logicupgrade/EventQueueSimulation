@@ -3,12 +3,18 @@ DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG) 
 
-# *******Testing PriorityQueue************************
-Test : TestPriorityQueue.o EventCardPQ.o PriorityQueue.o LinkedQueue.o LinkedList.o Node.o Event.o EventCard.o
-	$(CC) $(LFLAGS)  TestPriorityQueue.o -o Test
+BankSim : BankSimulation.o EventCardPQ.o PriorityQueue.o LinkedQueue.o LinkedList.o Node.o Event.o EventCard.o
+	$(CC) $(LFLAGS)  BankSimulation.o -o BankSim
 
-TestPriorityQueue.o : TestPriorityQueue.cpp EventCardPQ.cpp PriorityQueue.cpp LinkedQueue.cpp LinkedList.cpp Node.cpp Event.cpp EventCard.cpp
-	$(CC) $(CFLAGS)  TestPriorityQueue.cpp
+BankSimulation.o : BankSimulation.cpp EventCardPQ.cpp PriorityQueue.cpp LinkedQueue.cpp LinkedList.cpp Node.cpp Event.cpp EventCard.cpp
+	$(CC) $(CFLAGS)  BankSimulation.cpp
+
+# *******Testing PriorityQueue************************
+# Test : TestPriorityQueue.o EventCardPQ.o PriorityQueue.o LinkedQueue.o LinkedList.o Node.o Event.o EventCard.o
+# 	$(CC) $(LFLAGS)  TestPriorityQueue.o -o Test
+
+# TestPriorityQueue.o : TestPriorityQueue.cpp EventCardPQ.cpp PriorityQueue.cpp LinkedQueue.cpp LinkedList.cpp Node.cpp Event.cpp EventCard.cpp
+# 	$(CC) $(CFLAGS)  TestPriorityQueue.cpp
 
 # *******Testing LinkedQueue************************
 # Test : TestLinkedQueue.o LinkedQueue.o LinkedList.o Node.o Event.o
