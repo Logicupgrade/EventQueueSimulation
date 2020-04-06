@@ -15,12 +15,12 @@ private:
 	int wait = -1; //helpedAt-arrived
 	int totalBankTime = -1;//arrive-depart
 
-	bool haveHelpedAt = false;
+	bool haveHelped = false;
 	bool haveDepart = false;
 public:
 	Event(int arriveTime, int duration);
 	~Event();
-	void helpedAt(int timeHelped);//set HaveHelpedAt true
+	void helpedAt(int timeHelped);//set haveHelped true
 	void departedAt(int timeDeparted);//set HaveDepart true
 	bool calcValues();//check have bools
 

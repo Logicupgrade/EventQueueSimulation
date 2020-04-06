@@ -21,33 +21,37 @@
 
 	void Event::helpedAt(int timeHelped)
 	{
-		this->helped = timeHelped;
-		haveHelpedAt = true;
+		helped = timeHelped;
+		haveHelped = true;
 	}
 
 	void Event::departedAt(int timeDeparted)
 	{
 		if( (timeDeparted >= 0) && (helped >= arrive) )
 		{
-			this->depart = timeDeparted;
+			// cout<<"Departed Inside1: "<<timeDeparted<<endl;
+			depart = timeDeparted;
 			haveDepart = true;
 		}
 	}
 
 	bool Event::calcValues()
 	{
-
+		// cout<<"Helpedbool Inside: "<<haveHelpedAt<<endl;
+		// cout<<"Departbool Inside: "<<haveDepart<<endl;
 		bool claculatedValues = false;
-		if(haveHelpedAt && haveDepart)
+		if(haveHelped && haveDepart)
 		{
+			// cout<<"HelpedAt Inside: "<<helped<<endl;
+			// cout<<"Arrived Inside: "<<arrive<<endl;
+			// cout<<"Departed Inside2: "<<depart<<endl;
 
 			wait = helped-arrive;
 			totalBankTime = arrive-depart;
 
 			claculatedValues = true;
 
-			cout<<"helped: "<<helped<<endl;
-			cout<<"arrive: "<<arrive<<endl;
+			
 		}
 
 		return claculatedValues;

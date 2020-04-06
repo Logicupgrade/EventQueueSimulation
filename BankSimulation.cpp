@@ -45,12 +45,12 @@ int main()
 	while( i<bankEvents->getCount() )
 	{
 		wait = bankEvents->getNodeAt(i)->getItem().getWait();
-		cout<<"wait: "<<wait<<endl;
+		// cout<<"wait: "<<wait<<endl;
 		sum += wait;
 		i++;
 	}
 
-	cout<<"avg wait: "<<sum/10<<endl;
+	cout<<"avg wait: "<<(sum/10)<<endl;
 	//_____________________________________________
 	
 
@@ -104,6 +104,9 @@ void loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEven
 		//customer was helped at this time
 		currentEvent->helpedAt(timeKeeper);
 
+		//*****!!!!!!!!!!!!causes chaos Numbers!!!!!!!!**************
+		// cout<<"timekeeper outside: "<<timeKeeper<<endl;
+
 		//enqueue 'a',arrivalTime,duration
 		EventCard tempCardA( 'a', currentEvent->getArrive() , currentEvent->getTransactionTime() );
 		bankEventCards->enqueue( tempCardA,tempCardA.getETime() );
@@ -113,13 +116,16 @@ void loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEven
 
 		//customer departed at this time
 		currentEvent->departedAt(timeKeeper);
-		cout<<"departed: "<< timeKeeper<<endl;
+		
 
 		//enqueue 'd',departure time,duration=0
 		EventCard tempCardD('d', timeKeeper , 0);
 		bankEventCards->enqueue( tempCardD, tempCardD.getETime() );
 
 		//calculate wait time and total time at bank
+		// cout<<"HelpedAtOutside: "<<currentEvent->getHelpedAt()<<endl;
+		// cout<<"DepartedAtOutside: "<< currentEvent->getDepart()<<endl;
+
 		currentEvent->calcValues(); 
 
 		//increment node
