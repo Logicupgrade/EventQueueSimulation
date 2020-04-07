@@ -14,11 +14,8 @@ using namespace std;
 //1 read in data into Event LinkedQ
 void readEventsToLQ(LinkedQueue<Event>* bankEventLQPtr, string inputFile);
 
-//2 initialize sim
-// void initSim()
-
 //2 load events in PQ
-int loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEventLQ );
+double loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEventLQ );
 
 //3 display events(PQ)
 void displayEvents( EventCardPQ<EventCard>* eCardSim );
@@ -31,32 +28,16 @@ int main()
 
 	readEventsToLQ(bankEvents, "InputFile.txt");
 
-	int averageWait = loadPQ( eventRecord, bankEvents );
+	int customerCount = bankEvents->getCount();
+
+	double averageWait = loadPQ( eventRecord, bankEvents );
 
 	displayEvents(eventRecord);
 
-	cout<<"count: "<<bankEvents->getCount()<<endl;
-
-	cout<<"avg wait: "<<averageWait<<endl;
-
-	//________Displays Bank Stats__________________
-	// int i = 0;
-	// int sum = 0;
-	// int wait;
-
-	// cout<<"count: "<<bankEvents->getCount()<<endl;
-
-	// while( i<bankEvents->getCount() )
-	// {
-	// 	wait = bankEvents->getNodeAt(i)->getItem().getWait();
-	// 	cout<<"wait: "<<wait<<endl;
-	// 	sum += wait;
-	// 	i++;
-	// }
-
-	// cout<<"avg wait: "<<(sum/10)<<endl;
-	//_____________________________________________
-	
+	cout<<endl;
+	cout<<"Final Statistics:"<<endl;
+	cout<<"		 Total number of people processed: "<<customerCount<<endl;
+	cout<<"		 Average amount of time spent waiting: "<<averageWait<<endl;
 
 	return 1;
 }
@@ -87,9 +68,9 @@ void readEventsToLQ(LinkedQueue<Event>* bankEventLQPtr, string inputFile)
 
 }
 
-int loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEventLQ )
+double loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEventLQ )
 {
-	int totalWaitTime = 0;
+	double totalWaitTime = 0;
 	int arriveTime;
 	int helpedTime;
 	int customerCount = bankEventLQ->getCount();
@@ -126,67 +107,9 @@ int loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEvent
 	return totalWaitTime/customerCount;
 }
 
-// void loadPQ(EventCardPQ<EventCard>* bankEventCards, LinkedQueue<Event>* bankEventLQ )
-// {
-// 	Node<Event>* currentNode;
-	
-// 	int timeKeeper = bankEventLQ->peekFront().getArrive();
-
-// 	int currentPosition =1;
-	
-// 	while( currentPosition < bankEventLQ->getCount() +1 )
-// 	{
-// 		//Current Event = Current Node Data
-// 		currentNode = bankEventLQ->getNodeAt(currentPosition);
-
-// 		if( timeKeeper < currentNode->getItem().getArrive() )
-// 		{
-// 			timeKeeper = currentNode->getItem().getArrive();
-// 		}
-// 		cout<<"timeKeeper1: "<<timeKeeper<<endl;
-// 		cout<<"currentPosition: "<<currentPosition<<endl;
-// 		//customer was helped at this time
-// 		currentNode->getItem().helpedAt(timeKeeper);
-
-// 		cout<<"HelpedAtOutside: "<<currentNode->getItem().getHelpedAt()<<endl;
-
-// 		//enqueue 'a',arrivalTime,duration
-// 		EventCard tempCardA( 'a', currentNode->getItem().getArrive() , currentNode->getItem().getTransactionTime() );
-// 		bankEventCards->enqueue( tempCardA,tempCardA.getETime() );
-
-// 		//event driven time(departed) update
-// 		timeKeeper += currentNode->getItem().getTransactionTime();
-
-// 		//customer departed at this time
-// 		currentNode->getItem().departedAt(timeKeeper);
-
-// 		cout<<"DepartOutside: "<<currentNode->getItem().getDepart()<<endl;
-
-		
-// 		// cout<<"HelpedAtOutside: "<<currentNode->getItem().getHelpedAt()<<endl;
-// 		// cout<<"DepartedAtOutside: "<< currentNode->getItem().getDepart()<<endl;
-		
-
-// 		//enqueue 'd',departure time,duration=0
-// 		EventCard tempCardD('d', timeKeeper , 0);
-// 		bankEventCards->enqueue( tempCardD, tempCardD.getETime() );
-
-		
-// 		//calculate wait time and total time at bank
-// 		currentNode->getItem().calcValues(); 
-
-// 		//increment node
-// 		currentPosition++;
-// 	}
-// }
-
 //3 display events(PQ)
 void displayEvents( EventCardPQ<EventCard>* eCardSim )
 {
-	//reverse pQOrder want to keep priorityQ order as highest to lowest
-
-
-
 	cout<<"Simulation Begins"<<endl;
 
 	while( !eCardSim->isEmpty() )
