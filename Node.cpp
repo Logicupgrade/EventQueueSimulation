@@ -41,7 +41,7 @@ void Node<ItemType>::setPVal(int priority)
 }
 
 template<class ItemType>
-ItemType Node<ItemType>::getItem()const
+ItemType Node<ItemType>::getItem()
 {
 	return item;
 }

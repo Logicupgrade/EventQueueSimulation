@@ -19,19 +19,19 @@
 	{
 	}
 
-	void Event::helpedAt(int timeHelped)
+	void Event::helpedAt(const int& timeHelped )
 	{
-		helped = timeHelped;
-		haveHelped = true;
+		
+		this->helped = timeHelped;
+		this->haveHelped = true;
 	}
 
-	void Event::departedAt(int timeDeparted)
+	void Event::departedAt(const int& timeDeparted)
 	{
-		if( (timeDeparted >= 0) && (helped >= arrive) )
-		{
-			// cout<<"Departed Inside1: "<<timeDeparted<<endl;
-			depart = timeDeparted;
-			haveDepart = true;
+		if( timeDeparted >= 0 )
+		{	
+			this->depart = timeDeparted;
+			this->haveDepart = true;
 		}
 	}
 
@@ -46,7 +46,7 @@
 			// cout<<"Arrived Inside: "<<arrive<<endl;
 			// cout<<"Departed Inside2: "<<depart<<endl;
 
-			wait = helped-arrive;
+			this->wait = helped-arrive;
 			totalBankTime = arrive-depart;
 
 			claculatedValues = true;
@@ -59,30 +59,30 @@
 
 	int Event::getArrive()
 	{
-		return arrive;
+		return this->arrive;
 	}
 
 	int Event::getHelpedAt()
 	{
-		return helped;
+		return this->helped;
 	}
 
 	int Event::getTransactionTime()
 	{
-		return transactionTime;
+		return this->transactionTime;
 	}
 
 	int Event::getDepart()
 	{
-		 return depart;
+		 return this->depart;
 	}
 
 	int Event::getWait()
 	{
-		return wait;
+		return this->wait;
 	}
 
 	int Event::getTotalBankTime()
 	{
-		return totalBankTime;
+		return this->totalBankTime;
 	}

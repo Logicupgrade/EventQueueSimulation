@@ -18,7 +18,7 @@ public:
 	void setItem(const ItemType& anItem);
 	void setNext(Node<ItemType>* nextNodePtr);
 	void setPVal(int priority);
-	ItemType getItem()const;
+	ItemType getItem();
 	Node<ItemType>* getNext()const;
 	int getPVal()const;
 };
